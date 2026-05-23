@@ -1,11 +1,11 @@
-import Image from "next/image";
-import { ArrowUpRight } from "lucide-react";
 import { images } from "@/lib/images";
+import { ArrowUpRight } from "lucide-react";
+import Image from "next/image";
 
 export function ReminderCard() {
   return (
     <aside
-      className="w-[280px] shrink-0 rounded-2xl bg-white p-3 shadow-2xl xl:w-[300px]"
+      className="w-[280px] h-[260px] shrink-0 rounded-2xl bg-white p-3 shadow-2xl xl:w-[330px] xl:h-[270px]"
       aria-label="Upcoming class reminder"
     >
       <div className="relative mb-3 overflow-hidden rounded-xl">
@@ -13,8 +13,8 @@ export function ReminderCard() {
           src={images.reminder}
           alt="Gym workout reminder"
           width={280}
-          height={140}
-          className="h-[120px] w-full object-cover"
+          height={180}
+          className="h-[180px] w-full object-cover"
         />
         <span className="absolute bottom-2 right-2 rounded-full bg-black px-3 py-1 text-[10px] font-semibold uppercase tracking-wide text-white">
           Reminder

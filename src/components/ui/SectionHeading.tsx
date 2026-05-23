@@ -13,7 +13,7 @@ export function SectionHeading({
 }: SectionHeadingProps) {
   return (
     <h2
-      className={`text-center font-[family-name:var(--font-barlow-condensed)] text-3xl font-bold uppercase tracking-tight text-white md:text-4xl lg:text-[42px] ${className}`}
+      className={`text-center font-[family-name:var(--font-barlow-condensed)] text-4xl font-bold uppercase tracking-tight text-white md:text-5xl lg:text-7xl ${className}`}
     >
       {before && <span>{before}</span>}
       {highlight && <span className="text-neon">{highlight}</span>}

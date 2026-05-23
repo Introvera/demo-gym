@@ -1,6 +1,6 @@
+import { images } from "@/lib/images";
 import Image from "next/image";
 import Link from "next/link";
-import { images } from "@/lib/images";
 
 export function AboutIntro() {
   return (
@@ -30,14 +30,14 @@ export function AboutIntro() {
           </h1>
 
           <p className="mt-8 text-sm leading-[1.85] text-white/90 md:text-[15px] md:leading-8">
-            Being physically and mentally fit is necessary to live a happy, long life.
-            Exercise is one of the best ways to keep a person healthy. Hence, it is
-            always best to find a workout routine no matter how busy you are. With the
-            workout.
+            Being physically and mentally fit is necessary to live a happy, long
+            life. Exercise is one of the best ways to keep a person healthy.
+            Hence, it is always best to find a workout routine no matter how
+            busy you are. With the workout.
           </p>
           <p className="mt-6 text-sm leading-[1.85] text-white/90 md:text-[15px] md:leading-8">
-            Being physically and mentally fit is necessary to live a happy, long life.
-            Exercise is one of the best ways to keep a person healthy.
+            Being physically and mentally fit is necessary to live a happy, long
+            life. Exercise is one of the best ways to keep a person healthy.
           </p>
 
           <Link

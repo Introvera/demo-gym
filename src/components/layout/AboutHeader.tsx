@@ -14,7 +14,7 @@ export function AboutHeader() {
       <div className="mx-auto flex max-w-[1400px] items-center justify-between">
         <Link
           href="/"
-          className="font-[family-name:var(--font-barlow-condensed)] text-2xl font-bold tracking-tight md:text-[28px]"
+          className="font-[family-name:var(--font-barlow-condensed)] text-xl font-bold tracking-tight md:text-2xl"
         >
           <span className="text-white">Flex</span>
           <span className="text-neon">Flow</span>
