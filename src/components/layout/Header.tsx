@@ -8,7 +8,7 @@ const navLinks = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about" },
   { label: "Blog", href: "/blog" },
-  { label: "Contact", href: "#contact" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export function Header() {
@@ -39,6 +39,9 @@ export function Header() {
   function isActiveLink(href: string) {
     if (href === "/") return pathname === "/";
     if (href.startsWith("/#")) return pathname === "/";
+    if (href === "/blog")
+      return pathname === "/blog" || pathname.startsWith("/blog/");
+    if (href === "/contact") return pathname === "/contact";
     return pathname === href;
   }
 
