@@ -1,7 +1,7 @@
 import { AboutIntro } from "@/components/about/AboutIntro";
+import { AboutPrograms } from "@/components/about/AboutPrograms";
 import { JoinWithUs } from "@/components/about/JoinWithUs";
-import { SpecialProgram } from "@/components/home/SpecialProgram";
-import { AboutFooter } from "@/components/layout/AboutFooter";
+import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import type { Metadata } from "next";
 
@@ -15,12 +15,10 @@ export default function AboutPage() {
   return (
     <main className="min-h-screen bg-black">
       <Header />
-      <div className="pt-24">
         <AboutIntro />
-        <SpecialProgram />
+        <AboutPrograms />
         <JoinWithUs />
-        <AboutFooter />
-      </div>
+        <Footer />
     </main>
   );
 }

@@ -12,14 +12,16 @@ export function JoinWithUs() {
   }
 
   return (
-    <section className="bg-black px-6 py-16 md:px-12 md:py-20 lg:px-16">
+    <section className="bg-black px-6 py-16 md:px-12 md:py-10 lg:px-16">
       <div className="mx-auto max-w-[1320px]">
         <div
-          className="relative overflow-hidden rounded-3xl px-8 py-12 md:px-14 md:py-14 lg:flex lg:items-center lg:justify-between lg:gap-12 lg:px-16"
+          className="relative overflow-hidden rounded-3xl px-8 py-4 md:px-4 md:py-6 lg:py-3 lg:flex lg:items-center lg:justify-between lg:gap-12 lg:px-16 min-h-[120px] md:min-h-[240px] lg:min-h-[300px]"
           style={{
-            clipPath: "polygon(0 28px, 100% 0, 100% 100%, 0 100%)",
+            // flip diagonal so angle travels left → right
+            clipPath: "polygon(0 0, 100% 88px, 100% 100%, 0 100%)",
             background:
-              "linear-gradient(165deg, #143d1f 0%, #0c2614 45%, #081a0d 100%)",
+              // gradient left to right
+              "linear-gradient(90deg, #143d1f 0%, #0c2614 45%, #081a0d 100%)",
           }}
         >
           {/* Subtle texture overlay */}
@@ -33,12 +35,12 @@ export function JoinWithUs() {
           />
 
           <div className="relative max-w-xl">
-            <h2 className="font-[family-name:var(--font-barlow-condensed)] text-3xl font-bold uppercase tracking-tight text-white md:text-4xl lg:text-[42px]">
+            <h2 className="font-[family-name:var(--font-barlow-condensed)] text-4xl font-bold uppercase tracking-tight text-white md:text-5xl lg:text-7xl">
               <span className="text-neon">Join</span> With Us
             </h2>
-            <p className="mt-4 text-sm leading-7 text-white/80 md:text-[15px] md:leading-8">
-              always best to find a workout routine no matter how busy you are. With
-              the workout.
+            <p className="mt-4 text-sm leading-7 text-white/80 md:text-2xl md:leading-8">
+              Always best to find a workout routine no matter how busy you are.
+              With the workout.
             </p>
           </div>
 

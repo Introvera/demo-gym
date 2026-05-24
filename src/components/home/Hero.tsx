@@ -20,7 +20,7 @@ function StatBlock({ value, label }: { value: string; label: string }) {
 
 export function Hero() {
   return (
-    <section className="relative flex min-h-[calc(100vh-140px)] flex-col overflow-hidden pb-4">
+    <section className="relative flex min-h-[calc(100vh-140px)] flex-col overflow-hidden pb-4 pt-25">
       <div
         className="pointer-events-none absolute inset-x-0  z-[1] flex justify-center overflow-hidden select-none"
         aria-hidden

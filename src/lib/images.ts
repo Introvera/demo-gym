@@ -25,7 +25,7 @@ const GYM_INTERIOR = "1517838277536-f5f99be501cd";
 const WORKOUT = "1526506118085-60ce8714f8c5";
 
 export const images = {
-  aboutPortrait: u(TRAINER_MAN, 720, 920),
+  aboutPortrait: "/about.jpg",
   hero: u(ATHLETE_HERO, 900, 1200),
   heroThumb: u(ATHLETE_HERO, 120, 120),
   bodybuilder: u(BODYBUILDER, 800, 1000),
@@ -50,7 +50,11 @@ export const images = {
     },
     cycling: {
       main: [u(CYCLING, 640, 900), u(WORKOUT, 640, 900)],
-      thumbs: [u(CYCLING, 120, 120), u(WORKOUT, 120, 120), u(CARDIO_GROUP, 120, 120)],
+      thumbs: [
+        u(CYCLING, 120, 120),
+        u(WORKOUT, 120, 120),
+        u(CARDIO_GROUP, 120, 120),
+      ],
     },
     mindAndBody: {
       main: [u(YOGA_WOMAN, 640, 900), u(MIND_BODY, 640, 900)],
