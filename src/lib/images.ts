@@ -63,10 +63,10 @@ export const images = {
   },
 
   coaches: [
-    { hours: "700", role: "Yoga trainer", image: u(YOGA_WOMAN, 500, 650) },
-    { hours: "100", role: "Fitness trainer", image: u(TRAINER_MAN, 500, 650) },
-    { hours: "1120", role: "Fitness trainer", image: u(BODYBUILDER, 500, 650) },
-    { hours: "500", role: "Box Jump trainer", image: u(FITNESS_WOMAN, 500, 650) },
-    { hours: "800", role: "Fitness trainer", image: u(ATHLETE_HERO, 500, 650) },
+    { hours: "700", role: "Yoga trainer", image: "/coach/coach1.jpg" },
+    { hours: "100", role: "Fitness trainer", image: "/coach/coach2.jpg" },
+    { hours: "1120", role: "Fitness trainer", image: "/coach/coach3.jpg" },
+    { hours: "500", role: "Box Jump trainer", image: "/coach/coach4.jpg" },
+    { hours: "800", role: "Fitness trainer", image: "/coach/coach5.jpg" },
   ],
 } as const;

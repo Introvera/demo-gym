@@ -1,10 +1,9 @@
 "use client";
 
-import Image from "next/image";
-import { ArrowUpRight } from "lucide-react";
-import { useState } from "react";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { images } from "@/lib/images";
+import Image from "next/image";
+import { useEffect, useState } from "react";
 
 const TABS = [
   "All",
@@ -29,8 +28,10 @@ function getProgramKey(tab: (typeof TABS)[number]): ProgramKey {
 }
 
 export function SpecialProgram() {
-  const [activeTab, setActiveTab] = useState<(typeof TABS)[number]>("Signature Class");
+  const [activeTab, setActiveTab] =
+    useState<(typeof TABS)[number]>("Signature Class");
   const [activeThumb, setActiveThumb] = useState(0);
+  const [slideIndex, setSlideIndex] = useState(0);
 
   const programKey = getProgramKey(activeTab);
   const program = PROGRAM_MAP[programKey];
@@ -47,10 +48,26 @@ export function SpecialProgram() {
         ? "Mind And Body"
         : programKey;
 
+  useEffect(() => {
+    setSlideIndex(0);
+    setActiveThumb(0);
+  }, [programKey]);
+
+  useEffect(() => {
+    if (program.main.length <= 1) return;
+
+    const interval = window.setInterval(() => {
+      setSlideIndex((current) => (current + 1) % program.main.length);
+      setActiveThumb((current) => (current + 1) % program.main.length);
+    }, 3500);
+
+    return () => window.clearInterval(interval);
+  }, [program.main.length]);
+
   return (
     <section
       id="programme"
-      className="relative overflow-hidden bg-black px-6 py-24 md:px-12 md:py-32 lg:px-16"
+      className="relative overflow-hidden bg-black px-6 py-24 md:px-12 md:py-22 lg:px-16"
     >
       <div
         className="pointer-events-none absolute -bottom-40 left-1/2 h-[320px] w-[600px] -translate-x-1/2 rounded-full bg-neon/12 blur-[100px]"
@@ -78,7 +95,7 @@ export function SpecialProgram() {
                   setActiveTab(tab);
                   setActiveThumb(0);
                 }}
-                className={`relative px-1 pb-2 text-[11px] font-semibold uppercase tracking-[0.18em] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neon focus-visible:ring-offset-2 focus-visible:ring-offset-black md:text-xs ${
+                className={`relative px-1 pb-2 text-[14px] font-semibold uppercase tracking-[0.18em] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neon focus-visible:ring-offset-2 focus-visible:ring-offset-black md:text-sm ${
                   isActive ? "text-white" : "text-[#5c5c5c] hover:text-[#888]"
                 }`}
               >
@@ -95,29 +112,17 @@ export function SpecialProgram() {
         </nav>
 
         <div className="mt-16 flex flex-col gap-10 lg:mt-20 lg:flex-row lg:items-stretch lg:gap-5">
-          <button
-            type="button"
-            onClick={() => {
-              setActiveTab("Mind And Body");
-              setActiveThumb(0);
-            }}
-            className="hidden min-h-[420px] w-[52px] shrink-0 flex-col items-center justify-between rounded-2xl bg-[#e4e4e4] px-2 py-5 transition-colors hover:bg-[#ececec] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neon lg:flex xl:min-h-[480px] xl:w-[56px]"
-            aria-label="View Mind And Body programs"
-          >
-            <ArrowUpRight className="h-4 w-4 shrink-0 text-black" strokeWidth={2.5} aria-hidden />
-            <span
-              className="font-[family-name:var(--font-barlow-condensed)] text-[10px] font-bold uppercase leading-none tracking-[0.22em] text-black"
-              style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
-            >
-              Mind And Body
-            </span>
-          </button>
-
           <div className="flex flex-1 justify-center gap-4 md:gap-5 lg:justify-start">
             {displayImages.map((src, i) => (
               <div
-                key={`${programKey}-${src}-${i}`}
-                className="relative aspect-[3/4.2] w-[42vw] max-w-[220px] overflow-hidden rounded-2xl sm:max-w-[240px] md:max-w-[260px] lg:w-[240px] lg:max-w-none xl:w-[270px]"
+                key={`${programKey}-${src}-${i}-${slideIndex}`}
+                className="relative aspect-[3/4.2] w-[42vw] max-w-[220px] overflow-hidden rounded-2xl transition-transform duration-700 ease-out sm:max-w-[240px] md:max-w-[260px] lg:w-[240px] lg:max-w-none xl:w-[270px]"
+                style={{
+                  transform:
+                    slideIndex % 2 === i
+                      ? "translateY(0) scale(1)"
+                      : "translateY(8px) scale(0.98)",
+                }}
               >
                 <Image
                   src={src}
@@ -134,11 +139,11 @@ export function SpecialProgram() {
             <h3 className="font-[family-name:var(--font-barlow-condensed)] text-[28px] font-bold uppercase leading-tight tracking-wide text-white md:text-[32px]">
               {title}
             </h3>
-            <p className="mt-6 text-[13px] leading-[1.85] text-white/85 md:text-sm md:leading-8">
-              Being physically and mentally fit is necessary to live a happy, long life.
-              Exercise is one of the best ways to keep a person healthy. Hence, it is
-              always best to find a workout routine no matter how busy you are. With the
-              workout.
+            <p className="mt-6 text-[16px] leading-[1.9] text-white/85 md:text-lg md:leading-6">
+              Being physically and mentally fit is necessary to live a happy,
+              long life. Exercise is one of the best ways to keep a person
+              healthy. Hence, it is always best to find a workout routine no
+              matter how busy you are. With the workout.
             </p>
 
             <div className="mt-10 flex items-center gap-5">
@@ -155,7 +160,13 @@ export function SpecialProgram() {
                   aria-label={`Select workout image ${i + 1}`}
                   aria-pressed={activeThumb === i}
                 >
-                  <Image src={src} alt="" fill className="object-cover" sizes="52px" />
+                  <Image
+                    src={src}
+                    alt=""
+                    fill
+                    className="object-cover"
+                    sizes="52px"
+                  />
                 </button>
               ))}
             </div>

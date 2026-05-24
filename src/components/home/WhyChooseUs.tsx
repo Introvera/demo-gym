@@ -1,7 +1,7 @@
+import { images } from "@/lib/images";
+import { Check } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { Check } from "lucide-react";
-import { images } from "@/lib/images";
 
 const FEATURES = [
   {
@@ -34,8 +34,8 @@ export function WhyChooseUs() {
 
       <div className="relative mx-auto grid max-w-[1320px] grid-cols-1 items-center gap-14 lg:grid-cols-2 lg:gap-8 xl:gap-12">
         <div className="lg:pr-8 xl:pr-12">
-          <h2 className="font-[family-name:var(--font-barlow-condensed)] text-[32px] font-bold uppercase leading-[1.12] tracking-tight text-white sm:text-4xl md:text-[42px] lg:text-[44px] xl:text-[48px]">
-            Why <span className="text-neon">Should</span> People Choose
+          <h2 className="font-[family-name:var(--font-barlow-condensed)] text-[32px] font-bold uppercase leading-[1.12] tracking-tight text-white sm:text-4xl md:text-[42px] lg:text-[49px] xl:text-[58px]">
+            Why <span className="text-neon">Should People </span>Choose
             <br />
             Flexflow Services
           </h2>
@@ -43,17 +43,17 @@ export function WhyChooseUs() {
           <ul className="mt-14 space-y-9 md:mt-16 md:space-y-10">
             {FEATURES.map((feature) => (
               <li key={feature.title} className="flex gap-4 md:gap-5">
-                <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-neon md:h-8 md:w-8">
+                <span className="mt-6 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-neon md:h-8 md:w-8">
                   <Check
                     className="h-3.5 w-3.5 stroke-[3] text-black md:h-4 md:w-4"
                     aria-hidden
                   />
                 </span>
                 <div className="min-w-0">
-                  <h3 className="font-[family-name:var(--font-barlow-condensed)] text-[15px] font-bold uppercase tracking-wide text-white md:text-base">
+                  <h3 className="font-[family-name:var(--font-barlow-condensed)] text-[22px] font-bold uppercase tracking-wide text-white ">
                     {feature.title}
                   </h3>
-                  <p className="mt-2 max-w-[420px] text-[13px] leading-[1.75] text-[#8e8e8e] md:text-sm md:leading-7">
+                  <p className="mt-2 max-w-[420px] text-[14px] leading-[1.75] text-[#fff82]  md:leading-5">
                     {feature.description}
                   </p>
                 </div>
@@ -69,12 +69,12 @@ export function WhyChooseUs() {
           </Link>
         </div>
 
-        <div className="relative mx-auto aspect-[4/5] w-full max-w-[440px] lg:mx-0 lg:ml-auto lg:max-w-none lg:aspect-[3/4] lg:h-[580px] lg:w-full xl:h-[640px]">
+        <div className="relative mx-auto aspect-[4/5] w-full max-w-[440px] lg:mx-0 lg:ml-auto lg:max-w-none lg:aspect-[3/4] lg:h-[580px] lg:w-full xl:h-[640px] h-full">
           <Image
             src={images.bodybuilder}
             alt="FlexFlow athlete flexing in the gym"
             fill
-            className="object-cover object-[center_20%] [mask-image:linear-gradient(to_left,black_75%,transparent_100%)]"
+            className="object-cover object-center [mask-image:linear-gradient(to_left,black_75%,transparent_100%)]"
             sizes="(max-width: 1024px) 90vw, 50vw"
           />
           <div

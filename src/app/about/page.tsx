@@ -1,9 +1,9 @@
-import type { Metadata } from "next";
-import { AboutHeader } from "@/components/layout/AboutHeader";
-import { AboutFooter } from "@/components/layout/AboutFooter";
 import { AboutIntro } from "@/components/about/AboutIntro";
-import { SpecialProgram } from "@/components/home/SpecialProgram";
 import { JoinWithUs } from "@/components/about/JoinWithUs";
+import { SpecialProgram } from "@/components/home/SpecialProgram";
+import { AboutFooter } from "@/components/layout/AboutFooter";
+import { Header } from "@/components/layout/Header";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "About Us | FlexFlow",
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <main className="min-h-screen bg-black">
-      <AboutHeader />
+      <Header />
       <div className="pt-24">
         <AboutIntro />
         <SpecialProgram />
