@@ -26,6 +26,7 @@ const WORKOUT = "1526506118085-60ce8714f8c5";
 
 export const images = {
   aboutPortrait: "/about.jpg",
+  blog: "/blog.jpg",
   hero: u(ATHLETE_HERO, 900, 1200),
   heroThumb: u(ATHLETE_HERO, 120, 120),
   bodybuilder: u(BODYBUILDER, 800, 1000),
