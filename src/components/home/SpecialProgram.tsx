@@ -70,15 +70,15 @@ export function SpecialProgram() {
       className="relative overflow-hidden bg-black px-6 py-24 md:px-12 md:py-22 lg:px-16"
     >
       <div
-        className="pointer-events-none absolute -bottom-40 left-1/2 h-[320px] w-[600px] -translate-x-1/2 rounded-full bg-neon/12 blur-[100px]"
+        className="pointer-events-none absolute -bottom-32 left-1/2 -translate-x-1/2 rounded-full bg-neon/12 blur-[100px] h-[220px] w-[420px] sm:h-[320px] sm:w-[600px]"
         aria-hidden
       />
       <div
-        className="pointer-events-none absolute -bottom-20 right-0 h-[280px] w-[280px] rounded-full bg-neon/8 blur-[90px]"
+        className="pointer-events-none absolute -bottom-20 right-0 h-[180px] w-[180px] sm:h-[280px] sm:w-[280px] rounded-full bg-neon/8 blur-[90px]"
         aria-hidden
       />
 
-      <div className="relative mx-auto max-w-[1320px]">
+      <div className="relative mx-auto max-w-screen-xl">
         <SectionHeading before="Our " highlight="Special" after=" Program." />
 
         <nav
@@ -116,7 +116,7 @@ export function SpecialProgram() {
             {displayImages.map((src, i) => (
               <div
                 key={`${programKey}-${src}-${i}-${slideIndex}`}
-                className="relative aspect-[3/4.2] w-[42vw] max-w-[220px] overflow-hidden rounded-2xl transition-transform duration-700 ease-out sm:max-w-[240px] md:max-w-[260px] lg:w-[240px] lg:max-w-none xl:w-[270px]"
+                className="relative aspect-[3/4.2] w-full sm:w-[42vw] max-w-[220px] overflow-hidden rounded-2xl transition-transform duration-700 ease-out sm:max-w-[240px] md:max-w-[260px] lg:w-[240px] lg:max-w-none xl:w-[270px]"
                 style={{
                   transform:
                     slideIndex % 2 === i

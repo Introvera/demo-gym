@@ -47,7 +47,7 @@ export function Hero() {
         size={10}
       />
 
-      <div className="relative z-10 mx-auto grid w-full max-w-[1400px] flex-1 grid-cols-1 items-start gap-6 px-6 pt-2 md:px-12 lg:grid-cols-[minmax(0,320px)_1fr_minmax(0,300px)] lg:items-center lg:gap-0 lg:px-16 lg:pt-4">
+      <div className="relative z-10 mx-auto grid w-full max-w-screen-xl flex-1 grid-cols-1 items-start gap-6 px-6 pt-2 md:px-12 lg:grid-cols-[minmax(0,320px)_1fr_minmax(0,300px)] lg:items-center lg:gap-0 lg:px-16 lg:pt-4">
         <div className="relative z-[30] max-w-[320px] lg:pt-45">
           <p className="text-sm leading-7 text-white md:text-base md:leading-7">
             More Than 500 Fitness Group Classes Per Month, Find Now Friends Who
@@ -67,8 +67,8 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="relative z-[20] -order-1 mx-auto w-full max-w-[480px] lg:order-none lg:max-w-[560px] ">
-          <div className="relative mx-auto aspect-[1/4.2] w-full max-h-[65vh] mt-16">
+        <div className="relative z-[20] -order-1 mx-auto w-full lg:order-none lg:max-w-[560px] ">
+          <div className="relative mx-auto aspect-[1/4.2] w-full max-h-[65vh] mt-12 sm:mt-16">
             <Image
               src="/hero.png"
               alt="Athlete training at FlexFlow gym"
@@ -84,10 +84,6 @@ export function Hero() {
         <div className="relative z-[30] hidden justify-end lg:flex lg:pt-50">
           <ReminderCard />
         </div>
-      </div>
-
-      <div className="relative z-[30] flex justify-end px-6 lg:hidden">
-        <ReminderCard />
       </div>
     </section>
   );

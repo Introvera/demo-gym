@@ -28,11 +28,11 @@ export function WhyChooseUs() {
       className="relative overflow-hidden bg-black px-6 py-24 md:px-12 md:py-32 lg:px-16"
     >
       <div
-        className="pointer-events-none absolute -top-16 right-0 h-[380px] w-[380px] rounded-full bg-neon/10 blur-[110px]"
+        className="pointer-events-none absolute -top-12 right-0 rounded-full bg-neon/10 blur-[110px] h-[220px] w-[220px] sm:h-[380px] sm:w-[380px]"
         aria-hidden
       />
 
-      <div className="relative mx-auto grid max-w-[1320px] grid-cols-1 items-center gap-14 lg:grid-cols-2 lg:gap-8 xl:gap-12">
+      <div className="relative mx-auto grid max-w-screen-xl grid-cols-1 items-center gap-14 lg:grid-cols-2 lg:gap-8 xl:gap-12">
         <div className="lg:pr-8 xl:pr-12">
           <h2 className="font-[family-name:var(--font-barlow-condensed)] text-[32px] font-bold uppercase leading-[1.12] tracking-tight text-white sm:text-4xl md:text-[42px] lg:text-[49px] xl:text-[58px]">
             Why <span className="text-neon">Should People </span>Choose
@@ -53,7 +53,7 @@ export function WhyChooseUs() {
                   <h3 className="font-[family-name:var(--font-barlow-condensed)] text-[22px] font-bold uppercase tracking-wide text-white ">
                     {feature.title}
                   </h3>
-                  <p className="mt-2 max-w-[420px] text-[14px] leading-[1.75] text-[#fff82]  md:leading-5">
+                  <p className="mt-2 max-w-md sm:max-w-[420px] text-[14px] leading-[1.75] text-[#fff82]  md:leading-5">
                     {feature.description}
                   </p>
                 </div>

@@ -5,16 +5,15 @@ import Image from "next/image";
 export function ReminderCard() {
   return (
     <aside
-      className="w-[280px] h-[260px] shrink-0 rounded-2xl bg-white p-3 shadow-2xl xl:w-[330px] xl:h-[270px]"
+      className="w-full max-w-[280px] sm:w-[280px] h-auto rounded-2xl bg-white p-3 shadow-2xl xl:max-w-[330px]"
       aria-label="Upcoming class reminder"
     >
-      <div className="relative mb-3 overflow-hidden rounded-xl">
+      <div className="relative mb-3 overflow-hidden rounded-xl aspect-[16/9]">
         <Image
           src={images.reminder}
           alt="Gym workout reminder"
-          width={280}
-          height={180}
-          className="h-[180px] w-full object-cover"
+          fill
+          className="object-cover"
         />
         <span className="absolute bottom-2 right-2 rounded-full bg-black px-3 py-1 text-[10px] font-semibold uppercase tracking-wide text-white">
           Reminder

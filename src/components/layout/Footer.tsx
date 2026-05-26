@@ -198,7 +198,7 @@ export function Footer() {
             © FlexFlow {new Date().getFullYear()}. All rights reserved.Website
             designed by{" Introvera (PVT) LTD"}.
           </p>
-          <p className="mt-3 text-sm text-[#8a8a8a] md:mt-0">
+          <p className="mt-3 hidden text-sm text-[#8a8a8a] md:mt-0 md:block">
             Built for performance - Biyagama, Sri Lanka
           </p>
         </div>

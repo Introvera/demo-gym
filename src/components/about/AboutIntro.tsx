@@ -3,15 +3,15 @@ import Image from "next/image";
 
 export function AboutIntro() {
   return (
-    <section className="relative overflow-hidden bg-black px-6 py-6 md:px-12 md:py-24 lg:px-16 lg:pt-34">
+    <section className="relative overflow-hidden bg-black px-6 pt-28 pb-10 sm:pt-32 md:px-12 md:py-24 lg:px-16 lg:pt-34">
       <div
-        className="pointer-events-none absolute right-0 top-1/4 h-[400px] w-[400px] rounded-full bg-neon/8 blur-[100px]"
+        className="pointer-events-none absolute right-0 top-1/4 rounded-full bg-neon/8 blur-[100px] h-[220px] w-[220px] sm:h-[400px] sm:w-[400px]"
         aria-hidden
       />
 
-      <div className="relative mx-auto grid max-w-[1320px] grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
+      <div className="relative mx-auto grid max-w-screen-xl grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
         {/* Image — left */}
-        <div className="relative mx-auto aspect-[4/4.4] w-full max-w-[440px] overflow-hidden rounded-3xl lg:mx-0 lg:max-w-none">
+        <div className="relative mx-auto aspect-[4/4.4] w-full max-w-md sm:max-w-[440px] overflow-hidden rounded-3xl lg:mx-0 lg:max-w-none">
           <Image
             src={images.aboutPortrait}
             alt="FlexFlow athlete"

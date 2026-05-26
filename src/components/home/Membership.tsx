@@ -1,5 +1,8 @@
-import Link from "next/link";
+"use client";
+
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 
 type Plan = {
   name: string;
@@ -45,14 +48,17 @@ const PLANS: Plan[] = [
   },
 ];
 
+const MOBILE_PLAN_COPIES = Array.from({ length: 5 }, () => PLANS).flat();
+const MOBILE_START_INDEX = PLANS.length * 2 + 1;
+
 function PricingCard({ plan }: { plan: Plan }) {
   const featured = plan.featured;
 
   return (
     <article
-      className={`flex flex-col rounded-3xl p-8 md:p-10 ${
+      className={`flex h-full flex-col rounded-3xl p-8 md:p-10 ${
         featured
-          ? "relative z-10 scale-100 bg-neon shadow-[0_0_60px_rgba(124,255,58,0.35)] lg:scale-105"
+          ? "relative z-10 bg-neon shadow-[0_0_60px_rgba(124,255,58,0.35)]"
           : "bg-[#141414]"
       }`}
     >
@@ -106,6 +112,82 @@ function PricingCard({ plan }: { plan: Plan }) {
 }
 
 export function Membership() {
+  const viewportRef = useRef<HTMLDivElement | null>(null);
+  const cardRefs = useRef<Array<HTMLDivElement | null>>([]);
+  const [translateX, setTranslateX] = useState(0);
+  const [transitionEnabled, setTransitionEnabled] = useState(true);
+  const activeIndexRef = useRef(MOBILE_START_INDEX);
+  const intervalRef = useRef<number | null>(null);
+
+  function getCenteredOffset(index: number) {
+    const viewport = viewportRef.current;
+    const card = cardRefs.current[index];
+
+    if (!viewport || !card) return 0;
+
+    const viewportRect = viewport.getBoundingClientRect();
+    const cardRect = card.getBoundingClientRect();
+
+    return (
+      viewportRect.width / 2 -
+      (cardRect.left - viewportRect.left + cardRect.width / 2)
+    );
+  }
+
+  function centerCard(index: number, animate = true) {
+    const offset = getCenteredOffset(index);
+    activeIndexRef.current = index;
+    setTransitionEnabled(animate);
+    setTranslateX(offset);
+  }
+
+  useEffect(() => {
+    const isMobile = window.matchMedia("(max-width: 767px)");
+
+    function initialize() {
+      if (!isMobile.matches) return;
+      setTransitionEnabled(false);
+      centerCard(MOBILE_START_INDEX, false);
+      requestAnimationFrame(() => setTransitionEnabled(true));
+    }
+
+    function startAutoScroll() {
+      if (intervalRef.current) window.clearInterval(intervalRef.current);
+
+      intervalRef.current = window.setInterval(() => {
+        if (!isMobile.matches) return;
+
+        const nextIndex = activeIndexRef.current + 1;
+
+        if (nextIndex >= MOBILE_PLAN_COPIES.length) {
+          const resetIndex = MOBILE_START_INDEX;
+          setTransitionEnabled(false);
+          centerCard(resetIndex, false);
+          requestAnimationFrame(() => setTransitionEnabled(true));
+          return;
+        }
+
+        centerCard(nextIndex, true);
+      }, 3500);
+    }
+
+    function handleResize() {
+      if (!isMobile.matches) return;
+      setTransitionEnabled(false);
+      centerCard(activeIndexRef.current, false);
+      requestAnimationFrame(() => setTransitionEnabled(true));
+    }
+
+    initialize();
+    startAutoScroll();
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      if (intervalRef.current) window.clearInterval(intervalRef.current);
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <section
       id="membership"
@@ -119,10 +201,34 @@ export function Membership() {
       <div className="relative mx-auto max-w-[1200px]">
         <SectionHeading highlight="Join " after="Our Membership." />
 
-        <div className="mt-14 grid grid-cols-1 items-center gap-6 md:grid-cols-3 md:gap-5 lg:gap-6">
-          {PLANS.map((plan) => (
-            <PricingCard key={plan.name} plan={plan} />
-          ))}
+        <div className="mt-14 -mx-6 px-6 pb-2 md:mx-0 md:px-0 md:pb-0">
+          <div className="md:hidden overflow-hidden" ref={viewportRef}>
+            <div
+              className="flex gap-4 will-change-transform"
+              style={{
+                transform: `translate3d(${translateX}px, 0, 0)`,
+                transition: transitionEnabled ? "transform 700ms ease" : "none",
+              }}
+            >
+              {MOBILE_PLAN_COPIES.map((plan, index) => (
+                <div
+                  key={`${plan.name}-${index}`}
+                  ref={(node) => {
+                    cardRefs.current[index] = node;
+                  }}
+                  className="w-[82vw] min-w-[82vw] shrink-0 sm:w-[68vw] sm:min-w-[68vw]"
+                >
+                  <PricingCard plan={plan} />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="hidden md:grid md:grid-cols-3 md:items-stretch md:gap-5 lg:gap-6">
+            {PLANS.map((plan) => (
+              <PricingCard key={plan.name} plan={plan} />
+            ))}
+          </div>
         </div>
 
         <p className="mt-20 text-center font-[family-name:var(--font-barlow-condensed)] text-3xl font-bold uppercase tracking-tight text-white md:text-4xl lg:text-[42px]">

@@ -38,7 +38,7 @@ export default function ContactPage() {
       <div className="pt-20 md:pt-16">
         <section className="relative overflow-hidden px-6 pb-14 pt-14 md:px-12 md:pb-16 md:pt-20 lg:px-16 lg:pt-18">
           <div
-            className="pointer-events-none absolute left-1/2 top-0 h-[360px] w-[360px] -translate-x-1/2 rounded-full bg-neon/12 blur-[120px]"
+            className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 rounded-full bg-neon/12 blur-[120px] h-[220px] w-[220px] sm:h-[360px] sm:w-[360px] md:h-[480px] md:w-[480px]"
             aria-hidden
           />
           <div className="relative mx-auto grid max-w-[1320px] grid-cols-1 gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12">
@@ -46,7 +46,7 @@ export default function ContactPage() {
               <p className="font-[family-name:var(--font-barlow-condensed)] text-sm font-bold uppercase tracking-[0.3em] text-neon">
                 Contact
               </p>
-              <h1 className="mt-4 max-w-4xl font-[family-name:var(--font-barlow-condensed)] text-5xl font-bold uppercase leading-[0.9] tracking-tight text-white sm:text-6xl md:text-[84px] lg:text-[92px]">
+              <h1 className="mt-4 max-w-4xl font-[family-name:var(--font-barlow-condensed)] text-4xl font-bold uppercase leading-[0.9] tracking-tight text-white sm:text-5xl md:text-6xl lg:text-[92px]">
                 Let&apos;s start your{" "}
                 <span className="text-neon">next step</span>.
               </h1>
@@ -56,7 +56,7 @@ export default function ContactPage() {
                 we&apos;ll point you to the right person.
               </p>
 
-              <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
+              <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
                 {contactCards.map((card) => (
                   <a
                     key={card.label}
@@ -78,7 +78,7 @@ export default function ContactPage() {
             </div>
 
             <div className="rounded-[32px] border border-white/10 bg-white/[0.03] p-4 md:p-5">
-              <div className="relative aspect-[5/4] overflow-hidden rounded-[24px]">
+              <div className="relative aspect-[4/3] sm:aspect-[5/4] overflow-hidden rounded-[24px]">
                 <Image
                   src={images.contact}
                   alt="FlexFlow coach ready to help"

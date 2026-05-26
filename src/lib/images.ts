@@ -25,10 +25,10 @@ const GYM_INTERIOR = "1517838277536-f5f99be501cd";
 const WORKOUT = "1526506118085-60ce8714f8c5";
 
 export const images = {
-  aboutPortrait: "/about.jpg",
-  blog: "/blog.jpg",
-  contact: "/contact.jpg",
-  contactcoach: "/contactcoach.jpg",
+  aboutPortrait: "/about.webp",
+  blog: "/blog.webp",
+  contact: "/contact.webp",
+  contactcoach: "/contactcoach.webp",
   hero: u(ATHLETE_HERO, 900, 1200),
   heroThumb: u(ATHLETE_HERO, 120, 120),
   bodybuilder: u(BODYBUILDER, 800, 1000),
@@ -70,10 +70,10 @@ export const images = {
   },
 
   coaches: [
-    { hours: "700", role: "Yoga trainer", image: "/coach/coach1.jpg" },
-    { hours: "100", role: "Fitness trainer", image: "/coach/coach2.jpg" },
-    { hours: "1120", role: "Fitness trainer", image: "/coach/coach3.jpg" },
-    { hours: "500", role: "Box Jump trainer", image: "/coach/coach4.jpg" },
-    { hours: "800", role: "Fitness trainer", image: "/coach/coach5.jpg" },
+    { hours: "700", role: "Yoga trainer", image: "/coach/coach1.webp" },
+    { hours: "100", role: "Fitness trainer", image: "/coach/coach2.webp" },
+    { hours: "1120", role: "Fitness trainer", image: "/coach/coach3.webp" },
+    { hours: "500", role: "Box Jump trainer", image: "/coach/coach4.webp" },
+    { hours: "800", role: "Fitness trainer", image: "/coach/coach5.webp" },
   ],
 } as const;
